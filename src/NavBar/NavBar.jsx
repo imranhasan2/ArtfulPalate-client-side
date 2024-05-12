@@ -1,12 +1,10 @@
-import { useContext } from "react";
+
 import { NavLink } from "react-router-dom";
-import { AuthContext } from "../Provider/AuthProvider";
 
 
 const NavBar = () => {
 
-    const {user} =useContext(AuthContext)
-    console.log(user)
+    
 
     const navbar = <>
         <li><NavLink to='/' style={({ isActive }) => {
@@ -36,7 +34,7 @@ const NavBar = () => {
     return (
         <div className="">
             <hr className="border-solid border-1 mt-5" />
-            <div className="navbar bg-base-100 sticky mt-5">
+            <div className="navbar bg-base-100  mt-5">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
