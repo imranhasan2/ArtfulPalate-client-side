@@ -5,13 +5,16 @@ import { getAuth } from "firebase/auth";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+
+console.log(import.meta.env.VITE_apiKey)
+
 const firebaseConfig = {
-  apiKey: "AIzaSyCMcs8P4NGMjTNLdkw33R8IAyUtAtu0OcY",
-  authDomain: "food-king-52cd3.firebaseapp.com",
-  projectId: "food-king-52cd3",
-  storageBucket: "food-king-52cd3.appspot.com",
-  messagingSenderId: "216119300733",
-  appId: "1:216119300733:web:f7db4fe44236ccada71714"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId:import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId:import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId
 };
 
 // Initialize Firebase

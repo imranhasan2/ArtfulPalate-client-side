@@ -1,7 +1,12 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 
 const NavBar = () => {
+
+    const {user} =useContext(AuthContext)
+    console.log(user)
 
     const navbar = <>
         <li><NavLink to='/' style={({ isActive }) => {
