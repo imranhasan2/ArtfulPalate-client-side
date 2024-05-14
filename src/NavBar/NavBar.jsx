@@ -1,10 +1,12 @@
 
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 
 const NavBar = () => {
+const {user,logOut} = useContext(AuthContext)
 
-    
 
     const navbar = <>
         <li><NavLink to='/' style={({ isActive }) => {
@@ -13,7 +15,7 @@ const NavBar = () => {
                 backgroundColor: isActive ? "green" : "",
             };
         }}>Home</NavLink></li>
-        <li><NavLink to='art'
+        <li><NavLink to='allFood'
             style={({ isActive }) => {
                 return {
                     fontWeight: isActive ? "bold" : "",
@@ -52,7 +54,25 @@ const NavBar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn ">Login</a>
+                    {
+                        user ? <div className="relative flex gap-3">
+
+                        <img src={user?.photoURL || "https://static.vecteezy.com/system/resources/thumbnails/001/993/889/small/beautiful-latin-woman-avatar-character-icon-free-vector.jpg"} alt="User" className="w-10 h-10 rounded-full cursor-pointer" />
+
+
+                        <span className="absolute top-0 left-full ml-2 bg-white p-1 rounded-md opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100">
+                            {user.displayName}
+                        </span>
+
+
+                        <button className="btn bg-warning px-3 py-1 rounded-xl" onClick={logOut}>
+                            LogOut
+                        </button>
+                    </div> :
+                        <Link to={'/login'}>
+                        <button className="btn bg-warning ">Login</button>
+                    </Link>
+                    }
                 </div>
             </div>
         </div>

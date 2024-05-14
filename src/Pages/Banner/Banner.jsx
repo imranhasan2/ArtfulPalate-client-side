@@ -11,6 +11,11 @@ import '../../index.css';
 
 // import required modules
 import { EffectCreative } from 'swiper/modules';
+import { TbBus, } from "react-icons/tb";
+import { Link } from 'react-router-dom';
+
+
+
 const Banner = () => {
     return (
         <div className='mt-5 mb-8 '>
@@ -34,6 +39,9 @@ const Banner = () => {
                         <div className="w-1/2 text-center">
                             <p className="text-yellow-500">Crispy,EveryBite,Taste</p>
                             <h1 className="text-7xl font-extrabold text-white">DELICIOUS <br /> FRIED <br /> CHICKEN</h1>
+                            <Link to={'/allFood'}>
+                                <p className='btn bg-green-500 mt-5 '><TbBus size={28}></TbBus> Order Now</p>
+                            </Link>
                         </div>
                         <div className="flex justify-center items-center">
                             <div>
@@ -47,6 +55,9 @@ const Banner = () => {
                         <div className="w-1/2 text-center">
                             <p className="text-yellow-500">Crispy,EveryBite,Taste</p>
                             <h1 className="text-7xl font-extrabold text-white">FAVOROTE <br /> FRIED <br /> CHICKEN</h1>
+                            <Link to={'/allFood'}>
+                                <p className='btn bg-green-500 mt-5 '><TbBus size={28}></TbBus> Order Now</p>
+                            </Link>
                         </div>
                         <div className="flex justify-center items-center">
                             <div>
@@ -60,6 +71,9 @@ const Banner = () => {
                         <div className="w-1/2 text-center">
                             <p className="text-yellow-500">Crispy,EveryBite,Taste</p>
                             <h1 className="text-7xl font-extrabold text-white">AWESOME <br /> FRIED <br /> CHICKEN</h1>
+                            <Link to={'/allFood'}>
+                                <p className='btn bg-green-500 mt-5 '><TbBus size={28}></TbBus> Order Now</p>
+                            </Link>
                         </div>
                         <div className="flex justify-center items-center">
                             <div>
