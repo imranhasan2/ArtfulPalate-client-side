@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -71,6 +72,11 @@ const Register = () => {
     }
     return (
         <div className="hero min-h-screen bg-rgb(255,255,255,.1)">
+            <Helmet>
+                <title>Register</title>
+                <meta name="description" content="Description of my page" />
+                {/* Other meta tags */}
+            </Helmet>
             <div className="hero-content flex-col ">
                 <div className="text-center ">
                     <h1 className="text-5xl font-bold">Register now!</h1>

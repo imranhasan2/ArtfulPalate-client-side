@@ -9,14 +9,15 @@ import { Link, useLocation, useNavigate, } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import auth from "../../Firebase/Firebase.Config";
 import { FaGooglePlusG } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 
 const Login = () => {
 
     const { signIn, } = useContext(AuthContext);
- 
+
     const navigate = useNavigate()
-    const location =useLocation()
+    const location = useLocation()
 
     const googleProvider = new GoogleAuthProvider;
 
@@ -76,12 +77,17 @@ const Login = () => {
 
     }
 
-    
+
 
 
 
     return (
         <div className="hero min-h-screen bg-base-200">
+            <Helmet>
+                <title>Login || FOod KIng</title>
+                <meta name="description" content="Description of my page" />
+                {/* Other meta tags */}
+            </Helmet>
             <div className="hero-content flex-col ">
                 <div className="text-center ">
                     <h1 className="text-5xl font-bold">Login now!</h1>

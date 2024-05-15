@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 
 
 const AllFoodPage = () => {
 
     const [allFoods, setAllFood] = useState([])
-    
+
 
     useEffect(() => {
         fetch('http://localhost:5000/addFood')
@@ -16,6 +17,11 @@ const AllFoodPage = () => {
     }, [])
     return (
         <div className="mb-5 mt-5">
+            <Helmet>
+                <title>All Food || Food King</title>
+                <meta name="description" content="Description of my page" />
+                {/* Other meta tags */}
+            </Helmet>
             <div className="relative">
                 <img src="https://modinatheme.com/foodking/wp-content/uploads/2024/02/breadcrumb-1.jpg" alt="" />
 

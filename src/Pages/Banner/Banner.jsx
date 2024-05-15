@@ -13,12 +13,19 @@ import '../../index.css';
 import { EffectCreative } from 'swiper/modules';
 import { TbBus, } from "react-icons/tb";
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 
 
 const Banner = () => {
     return (
+
+
+
         <div className='mt-5 mb-8 '>
+           
+
+
             <Swiper
                 grabCursor={true}
                 effect={'creative'}

@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 
 const FoodPurchase = () => {
@@ -17,12 +18,12 @@ const FoodPurchase = () => {
 
         const from = e.target;
 
-        const food=from.foodName.value
+        const food = from.foodName.value
         const price = from.price.value;
-        const quantity =from.quantity.value;
-        const userName =user?.displayName;
-        const email =user?.email
-        console.log(food,price,quantity,userName,email)
+        const quantity = from.quantity.value;
+        const userName = user?.displayName;
+        const email = user?.email
+        console.log(food, price, quantity, userName, email)
 
 
 
@@ -44,8 +45,8 @@ const FoodPurchase = () => {
                     text: 'you have successfully Purchase a Item',
                     icon: 'success',
                     confirmButtonText: 'ok'
-                    
-                  })
+
+                })
             })
 
     }
@@ -54,6 +55,11 @@ const FoodPurchase = () => {
 
     return (
         <div className="container mx-auto p-8 bg-white bg-opacity-25 rounded-lg shadow-lg">
+            <Helmet>
+                <title>Purchase || Food King</title>
+                <meta name="description" content="Description of my page" />
+                {/* Other meta tags */}
+            </Helmet>
             <h2 className="text-2xl font-bold text-center mb-4">Food Purchase Page</h2>
             <form onSubmit={handlePurchase} className="space-y-4">
                 <div>
