@@ -14,8 +14,9 @@ import { FaGooglePlusG } from "react-icons/fa";
 const Login = () => {
 
     const { signIn, } = useContext(AuthContext);
-    const location = useLocation()
+ 
     const navigate = useNavigate()
+    const location =useLocation()
 
     const googleProvider = new GoogleAuthProvider;
 
@@ -42,6 +43,7 @@ const Login = () => {
                     icon: 'Success',
                     confirmButtonText: 'ok'
                 })
+                navigate(location?.state ? location?.state : '/')
 
             })
             .catch(error => {
@@ -66,6 +68,7 @@ const Login = () => {
                     icon: 'Success',
                     confirmButtonText: 'ok'
                 })
+                navigate(location?.state ? location?.state : '/')
             })
             .catch(error => {
                 console.log(error)

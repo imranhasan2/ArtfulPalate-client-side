@@ -11,8 +11,6 @@ const AllFoodPage = () => {
         fetch('http://localhost:5000/addFood')
             .then(res => res.json())
             .then(data => {
-                console.log(data)
-
                 setAllFood(data)
             })
     }, [])
