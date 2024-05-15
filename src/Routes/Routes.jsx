@@ -8,11 +8,13 @@ import AllFoodPage from "../Pages/AllFoodPage/AllFoodPage";
 import SingleFoodPage from "../Pages/SingleFoodPage/SingleFoodPage";
 import FoodPurchase from "../Pages/FoodPurchase/FoodPurchase";
 import Private from "../Protected/Private";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
     {
       path: "/",
       element: <Root></Root>,
+      errorElement:<ErrorPage></ErrorPage>,
       children:[{
 
         path : '/',
