@@ -22,7 +22,7 @@ const {user,logOut} = useContext(AuthContext)
                     backgroundColor: isActive ? "green" : "",
                 };
             }}>All Foods</NavLink></li>
-        <li><NavLink to='addCraftItem'
+        <li><NavLink to='gallery'
             style={({ isActive }) => {
                 return {
                     fontWeight: isActive ? "bold" : "",

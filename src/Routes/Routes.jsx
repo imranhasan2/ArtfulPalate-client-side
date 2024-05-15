@@ -9,6 +9,7 @@ import SingleFoodPage from "../Pages/SingleFoodPage/SingleFoodPage";
 import FoodPurchase from "../Pages/FoodPurchase/FoodPurchase";
 import Private from "../Protected/Private";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import Gallery from "../Pages/Gallery/Gallery";
 
 export const router = createBrowserRouter([
     {
@@ -41,6 +42,10 @@ export const router = createBrowserRouter([
         element:<Private><FoodPurchase></FoodPurchase></Private>,
         loader :({params}) => fetch (`http://localhost:5000/addFood/${params.id}`)
         
+      },
+      {
+        path: '/gallery',
+        element : <Gallery></Gallery>
       }
     ]
 

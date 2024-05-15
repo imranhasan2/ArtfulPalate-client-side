@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import { IoIosArrowDroprightCircle } from "react-icons/io";
 
 
 const AllFoodPage = () => {
@@ -23,14 +24,17 @@ const AllFoodPage = () => {
                 {/* Other meta tags */}
             </Helmet>
             <div className="relative">
-                <img src="https://modinatheme.com/foodking/wp-content/uploads/2024/02/breadcrumb-1.jpg" alt="" />
+                <img className="rounded-lg" src="https://modinatheme.com/foodking/wp-content/uploads/2024/02/breadcrumb-1.jpg" alt="" />
 
-                <p className="absolute text-5xl font-extrabold text-white top-1/2 left-1/2 ">All FOODS </p>
+                <div className="absolute transform -translate-x-1/2  -translate-y-1/2  top-1/2 left-1/2">
+                    <p className=" text-5xl font-extrabold text-white ">All FOODS </p>
+                    <p className=" text-xl font-extrabold text-yellow-400 ml-10 flex items-center">Home <IoIosArrowDroprightCircle></IoIosArrowDroprightCircle> All Food </p>
+                </div>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-3 mt-5 gap-5">
                 {allFoods.map(allFood =>
 
-                    <div key={allFood._id} className="max-w-xs rounded-md shadow-md  dark:text-gray-800 p-4">
+                    <div key={allFood._id} className="max-w-xs rounded-md hover:bg-yellow-500 shadow-md  dark:text-gray-800 p-4">
                         <img src={allFood.foodImg} alt="" className="object-cover object-center w-full rounded-t-md h-72 " />
                         <div className="flex flex-col justify-between p-6 space-y-8  ">
                             <div className="space-y-2">

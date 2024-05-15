@@ -82,7 +82,7 @@ const FoodPurchase = () => {
                     <label htmlFor="price" className="block font-semibold">Buyer Email</label>
                     <input type="email" defaultValue={user?.email} min="0" step="0.01" className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500" readOnly />
                 </div>
-                {/* Add By (name & email) will be automatically filled from the logged-in user */}
+             
 
                 <div>
                     <button type="submit" className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Purchase</button>
