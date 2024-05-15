@@ -1,15 +1,11 @@
 import { GiHamburger } from "react-icons/gi";
 import { FaUserFriends } from "react-icons/fa";
-import { Helmet } from "react-helmet-async";
+
 
 const AboutOurFood = () => {
     return (
         <div className="flex mt-12 mb-12 ">
-            <Helmet>
-                <title>AboutFood || FoodKing</title>
-                <meta name="description" content="Description of my page" />
-                {/* Other meta tags */}
-            </Helmet>
+            
             <div className="w-1/2 pl-10 relative">
                 <img src="https://modinatheme.com/foodking/wp-content/uploads/2024/02/burger-4.png" alt="" />
                 <h2 className="bg-yellow-500  absolute right-0 bottom-1/4 rounded-md -rotate-45 px-4 py-6 w-[200px] text-center text-white text-2xl font-semibold">Since/1982</h2>

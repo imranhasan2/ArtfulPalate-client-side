@@ -60,7 +60,7 @@ const TopSellingFood = () => {
                 pagination={{
                     clickable: true,
                 }}
-                navigation={true}
+               
                 className="mySwiper"
                 modules={[Autoplay, Pagination, Navigation]}
             >
@@ -68,7 +68,7 @@ const TopSellingFood = () => {
                     <SwiperSlide key={index}>
                         <div className="grid lg:grid-cols-3 grid-cols-1 gap-4">
                             {group.map(sell => (
-                                <div key={sell._id} className="max-w-xs rounded-md shadow-md dark:text-gray-800 p-4">
+                                <div key={sell._id} className="max-w-xs rounded-md shadow-md dark:text-gray-800 p-4 hover:bg-yellow-500">
                                     <img src={sell.foodImg} alt="" className="object-cover object-center w-full rounded-t-md h-72" />
                                     <div className="flex flex-col justify-between p-6 space-y-8">
                                         <div className="space-y-2">
