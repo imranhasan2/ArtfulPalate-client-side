@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { useNavigate } from "react-router-dom";
@@ -8,6 +8,19 @@ const Gallery = () => {
     const { user } = useContext(AuthContext);
     const [modalOpen, setModalOpen] = useState(false);
     const navigate = useNavigate();
+    const [photos, setPhoto] = useState([])
+
+
+
+    useEffect(() => {
+        fetch('http://localhost:5000/photo')
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                setPhoto(data)
+            })
+    }, [])
+
 
     const handleOpenModal = () => {
         if (user) {
@@ -27,20 +40,20 @@ const Gallery = () => {
         const form = e.target;
         const feedback = form.feedback.value;
         const url = form.photoUrl.value;
-        const photo ={feedback,url}
+        const photo = { feedback, url }
         console.log(feedback, url)
 
-        fetch('http://localhost:5000/photo',{
-            method : "POST",
-            headers:{
-                "content-type" : 'application/json'
+        fetch('http://localhost:5000/photo', {
+            method: "POST",
+            headers: {
+                "content-type": 'application/json'
             },
             body: JSON.stringify(photo)
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+            })
 
     }
 
@@ -90,6 +103,21 @@ const Gallery = () => {
                     </div>
                 </dialog>
             )}
+            <div className="mt-12 mb-12">
+                <div className="mt-5 mb-12">
+                    <div className="grid grid-cols-3 gap-4">
+                        {photos.map(image => (
+                            <div key={image._id} className="relative">
+                                <img src={image.url} alt="" className="rounded-lg" />
+                                <div className="overlay absolute inset-0 bg-black bg-opacity-70 w-full h-full p-2 text-white opacity-0 transition-opacity duration-300 hover:opacity-100 flex justify-center items-center flex-col">
+                                    <p className="text-lg font-bold">User:{user?.displayName}</p>
+                                    <p className="text-sm">{image.feedback}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
