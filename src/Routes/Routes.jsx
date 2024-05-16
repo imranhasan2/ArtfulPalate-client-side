@@ -10,6 +10,10 @@ import FoodPurchase from "../Pages/FoodPurchase/FoodPurchase";
 import Private from "../Protected/Private";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Gallery from "../Pages/Gallery/Gallery";
+import MyAddedFoodItem from "../MyAddedFoodItemPage/MyAddedFoodItem";
+
+import OrderedFood from "../Pages/MyOrderedFood/OrderedFood";
+import Update from "../Pages/UpdateAproduct/Update";
 
 export const router = createBrowserRouter([
     {
@@ -46,6 +50,17 @@ export const router = createBrowserRouter([
       {
         path: '/gallery',
         element : <Gallery></Gallery>
+      },{
+        path:'/my-added-food-items',
+        element:<MyAddedFoodItem></MyAddedFoodItem>,
+      },{
+        path : '/myOrderedFood',
+        element:<OrderedFood></OrderedFood>,
+      },{
+        path : '/update/:id',
+        element: <Update></Update>,
+        loader :({params}) => fetch (`http://localhost:5000/myFood/${params.id}`)
+
       }
     ]
 

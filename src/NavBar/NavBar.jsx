@@ -1,11 +1,40 @@
 
-import { useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { useContext, useState } from "react";
+
+import { Link, NavLink, useNavigate, } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 
 
 const NavBar = () => {
-const {user,logOut} = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
+
+    const [open, setOpen] = useState(false)
+
+    const navigate = useNavigate()
+
+   
+    const handleMenuClick = (menu) => {
+        switch (menu) {
+            case "My added food items":
+                navigate("/my-added-food-items");
+                break;
+            case "Add a food item":
+                navigate("/addAFoodItem");
+                break;
+            case "My ordered food items":
+                navigate("/myOrderedFood");
+                break;
+            default:
+                break;
+        }
+        setOpen(false);
+    };
+
+
+
+    const Menus = ["My added food items",
+        "Add a food item",
+        "  My ordered food items"]
 
 
     const navbar = <>
@@ -53,25 +82,46 @@ const {user,logOut} = useContext(AuthContext)
                         {navbar}
                     </ul>
                 </div>
-                <div className="navbar-end">
+                <div className="navbar-end relative">
                     {
                         user ? <div className="relative flex gap-3">
 
-                        <img src={user?.photoURL || "https://static.vecteezy.com/system/resources/thumbnails/001/993/889/small/beautiful-latin-woman-avatar-character-icon-free-vector.jpg"} alt="User" className="w-10 h-10 rounded-full cursor-pointer" />
+                            <img
+                            
+                            onClick={() => setOpen(!open)}
+                            src={user?.photoURL || "https://static.vecteezy.com/system/resources/thumbnails/001/993/889/small/beautiful-latin-woman-avatar-character-icon-free-vector.jpg"} alt="User" className="w-16 h-16 rounded-full cursor-pointer" />
 
 
-                        <span className="absolute top-0 left-full ml-2 bg-white p-1 rounded-md opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100">
-                            {user.displayName}
-                        </span>
+                            {
+                                open && (
+                                    <div className="absolute  bg-white p-4 shadow-lg -left-14 top-16 z-20">
+                                        <ul>
+                                            {
+                                                Menus.map((menu) => (
+                                                    <li className="p-2 hover:bg-blue-500 rounded cursor-pointer text-lg text-red-700" key={menu}
+                                                    
+                                                    onClick={() => handleMenuClick(menu)}
+                                                    >{menu}</li>
+                                                ))
+                                            }
+                                        </ul>
+
+                                    </div>
+                                )
+                            }
+
+                            <span className="absolute top-0 left-full ml-2 bg-white p-1 rounded-md opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100">
+                                {user.displayName}
+                            </span>
 
 
-                        <button className="btn bg-warning px-3 py-1 rounded-xl" onClick={logOut}>
-                            LogOut
-                        </button>
-                    </div> :
-                        <Link to={'/login'}>
-                        <button className="btn bg-warning ">Login</button>
-                    </Link>
+                            <button className="btn bg-warning px-3 py-1 rounded-xl" onClick={logOut}>
+                                LogOut
+                            </button>
+                        </div> :
+                            <Link to={'/login'}>
+                                <button className="btn bg-warning ">Login</button>
+                            </Link>
                     }
                 </div>
             </div>
