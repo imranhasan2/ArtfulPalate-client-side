@@ -1,12 +1,12 @@
-Website Name: mintie art and craft
+Website Name: Food King
 
 **Overview**: Mintie Art and Craft is a website where people can explore and purchase unique handmade arts and crafts. The platform also allows artists to showcase and sell their creations, fostering a community of creativity and craftsmanship.
 
-Live Site URL: [https://mintie-art-and-craft.web.app/]
+Live Site URL:https://food-king-52cd3.web.app/
 
 **Features**:
-- Clients can add their crafts through a form.
-- Clients can showcase their items on the website.
+- user can add food item
+-user can purchase food.
 
 Resources:
 
